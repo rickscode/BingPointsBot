@@ -28,6 +28,9 @@ chrome_options.add_argument("--headless")
 service = Service(ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service, options=chrome_options)
 
+print("Welcome to BingSearch Points Bot")
+
+
 print("Opening Bing login page...")
 
 # Go to Bing login page
