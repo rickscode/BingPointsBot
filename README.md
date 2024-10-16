@@ -48,7 +48,7 @@ Create a file named `.env` in the project directory to store your environment va
 ```plaintext
 BING_EMAIL=your_email@example.com
 BING_PASSWORD=your_password
-BING_LOGIN_URL=https://login.live.com
+BING_LOGIN_URL=your unique bing search login url 
 ```
 
 Replace `your_email@example.com` and `your_password` with your actual Bing account credentials.
