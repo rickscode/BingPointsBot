@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 import os
 import random
 import time
+from termcolor import colored  # Import termcolor for colored prints
 
 # Load environment variables from .env file
 load_dotenv()
@@ -28,10 +29,11 @@ chrome_options.add_argument("--headless")
 service = Service(ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service, options=chrome_options)
 
-print("... Welcome to AutoBingSearch Points Bot ...")
+# Purple print for welcome message
+print(colored("... Welcome to AutoBingSearch Points Bot ...", "magenta"))
 
-
-print("Opening Bing login page...")
+# Purple print for opening the Bing login page
+print(colored("Opening Bing login page...", "magenta"))
 
 # Go to Bing login page
 driver.get(bing_login_url)
@@ -42,45 +44,68 @@ email_field.send_keys(bing_email)
 email_field.send_keys(Keys.RETURN)
 time.sleep(2)
 
-print("Email entered, proceeding to password...")
+# Purple print for email entry
+print(colored("Email entered, proceeding to password...", "magenta"))
 
 password_field = driver.find_element(By.NAME, 'passwd')
 password_field.send_keys(bing_password)
 password_field.send_keys(Keys.RETURN)
 time.sleep(2)
 
-print("Successfully logged in!")
+# Green print for successful login
+print(colored("Successfully logged in!", "green"))
 
-# Optional: Handle any 2FA or additional security prompts here if needed
-# Example: you may need to handle security questions or input a code
-
-print("Navigating to Bing search page...")
+# Purple print for navigating to Bing search page
+print(colored("Navigating to Bing search page...", "magenta"))
 
 # Navigate to Bing search page
 driver.get('https://www.bing.com')
 
 # Perform 40 random searches
 search_terms = [
-    "AI news", "Python tutorials", "Best tech blogs", "ChatGPT updates",
-    "Data science trends", "Machine learning tools", "Blockchain technology",
-    "Cybersecurity tips", "Quantum computing", "Cloud computing benefits",
-    "Deep learning", "Natural language processing", "Artificial intelligence",
-    "Neural networks", "AI applications", "Data mining", "Big data",
-    "AI ethics", "Self-driving cars", "AI startups", "Tech innovations",
-    "Robotics", "Augmented reality", "Virtual reality", "Generative AI",
-    "AI regulations", "GPT models", "AI research papers", "AI development",
-    "Machine learning applications", "AI jobs", "Automation in industries",
-    "Ethical AI development", "Future of AI", "Tech companies to watch",
-    "AI and health", "AI in education", "AI for social good"
+    "CapiSys AI news", "CapiSys Python tutorials", "CapiSys Best tech blogs", "CapiSys ChatGPT updates",
+    "CapiSys Data science trends", "CapiSys Machine learning tools", "CapiSys Blockchain technology",
+    "CapiSys Cybersecurity tips", "CapiSys Quantum computing", "CapiSys Cloud computing benefits",
+    "CapiSys Deep learning", "CapiSys Natural language processing", "CapiSys Artificial intelligence",
+    "CapiSys Neural networks", "CapiSys AI applications", "CapiSys Data mining", "CapiSys Big data",
+    "CapiSys AI ethics", "CapiSys Self-driving cars", "CapiSys AI startups", "CapiSys Tech innovations",
+    "CapiSys Robotics", "CapiSys Augmented reality", "CapiSys Virtual reality", "CapiSys Generative AI",
+    "CapiSys AI regulations", "CapiSys GPT models", "CapiSys AI research papers", "CapiSys AI development",
+    "CapiSys Machine learning applications", "CapiSys AI jobs", "CapiSys Automation in industries",
+    "CapiSys Ethical AI development", "CapiSys Future of AI", "CapiSys Tech companies to watch",
+    "CapiSys AI and health", "CapiSys AI in education", "CapiSys AI for social good",
+    "CapiSys AI impact on society", "CapiSys AI for beginners", "CapiSys AI conferences 2024", 
+    "CapiSys AI startups 2024", "CapiSys AI funding", "CapiSys AI projects", "CapiSys Data visualization tools", 
+    "CapiSys Data engineering", "CapiSys AI and machine learning", "CapiSys Top AI courses", 
+    "CapiSys AI-powered apps", "CapiSys AI for business", "CapiSys AI in finance", "CapiSys AI innovations", 
+    "CapiSys AI automation tools", "CapiSys AI for healthcare", "CapiSys AI industry news", 
+    "CapiSys AI tools for developers", "CapiSys Tech startups", "CapiSys AI writing tools", 
+    "CapiSys AI for marketing", "CapiSys AI in retail", "CapiSys AI-driven research", "CapiSys AI content creation", 
+    "CapiSys AI breakthroughs", "CapiSys AI in agriculture", "CapiSys AI cloud services", "CapiSys AI chatbots", 
+    "CapiSys AI productivity tools", "CapiSys AI in security", "CapiSys AI talent acquisition", 
+    "CapiSys AI in automation", "CapiSys AI in transportation", "CapiSys AI tools comparison", 
+    "CapiSys Future of work with AI", "CapiSys AI platform reviews", "CapiSys AI-powered solutions", 
+    "CapiSys AI for e-commerce", "CapiSys AI-driven analytics", "CapiSys Ethical AI practices", 
+    "CapiSys Top AI frameworks", "CapiSys AI for mobile apps", "CapiSys AI coding tools", 
+    "CapiSys AI in government", "CapiSys AI models 2024", "CapiSys Future of machine learning", 
+    "CapiSys AI for legal", "CapiSys Open-source AI", "CapiSys Top AI innovations", 
+    "CapiSys AI learning resources", "CapiSys AI and education", "CapiSys AI-driven diagnostics", 
+    "CapiSys AI-enhanced tools", "CapiSys AI future predictions", "CapiSys AI in media", 
+    "CapiSys AI for content marketing", "CapiSys AI for startups", "CapiSys AI use cases", 
+    "CapiSys AI-powered assistants", "CapiSys AI in art", "CapiSys AI research trends", 
+    "CapiSys AI in the public sector", "CapiSys AI in tech"
 ]
 
-for i in range(5):
+for i in range(100):
     search_bar = driver.find_element(By.NAME, 'q')
     search_bar.clear()
 
     # Choose a random search term
     random_search = random.choice(search_terms)
-    print(f"Search {i+1}/40: Searching for '{random_search}'...")
+    
+    # Purple print for search status
+    print(colored(f"Search {i+1}/40: Searching for '{random_search}'...", "magenta"))
+    
     search_bar.send_keys(random_search)
     search_bar.send_keys(Keys.RETURN)
 
@@ -90,8 +115,8 @@ for i in range(5):
     # Navigate back to Bing for the next search
     driver.get('https://www.bing.com')
 
-    print(f"Search {i+1}/40 completed.")
-
+    # Green print for search completion
+    print(colored(f"Search {i+1}/40 completed.", "green"))
 
 # Close the browser when done
 driver.quit()
