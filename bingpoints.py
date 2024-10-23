@@ -58,7 +58,7 @@ print(colored("Successfully logged in!", "green"))
 # Navigating to Bing search page
 print(colored("Navigating to Bing search page...", "magenta"))
 driver.get('https://www.bing.com')
-time.sleep(3)
+time.sleep(23)
 
 # Perform 40 random searches
 search_terms = [
@@ -95,7 +95,7 @@ search_terms = [
     "CapiSys AI in the public sector", "CapiSys AI in tech"
 ]
 
-for i in range(40):
+for i in range(10):
     search_bar = driver.find_element(By.NAME, 'q')
     search_bar.clear()
 
@@ -118,7 +118,7 @@ for i in range(40):
         exit()
 
     # No more cookie clearing to avoid session issues
-    driver.get('https://www.bing.com')
+    # driver.get('https://www.bing.com')
 
     print(colored(f"Search {i+1}/40 completed.", "green"))
 
