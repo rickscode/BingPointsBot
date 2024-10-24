@@ -22,7 +22,7 @@ bing_login_url = os.getenv("BING_LOGIN_URL")
 chrome_options = Options()
 chrome_options.add_argument("--no-sandbox")
 chrome_options.add_argument("--disable-dev-shm-usage")
-chrome_options.add_argument("--headless")  # Commented to run in visible mode
+# chrome_options.add_argument("--headless")  # Commented to run in visible mode
 
 # Initialize the Chrome driver with the service
 service = Service(ChromeDriverManager().install())
@@ -58,7 +58,7 @@ print(colored("Successfully logged in!", "green"))
 # Navigating to Bing search page
 print(colored("Navigating to Bing search page...", "magenta"))
 driver.get('https://www.bing.com')
-time.sleep(27)
+time.sleep(7)
 
 # Perform 40 random searches
 search_terms = [
@@ -103,7 +103,7 @@ for i in range(100):
     random_search = random.choice(search_terms)
 
     print(
-        colored(f"Search {i+1}/40: Searching for '{random_search}'...", "magenta"))
+        colored(f"Search {i+1}/100: Searching for '{random_search}'...", "magenta"))
 
     search_bar.send_keys(random_search)
     search_bar.send_keys(Keys.RETURN)
@@ -120,7 +120,7 @@ for i in range(100):
     # No more cookie clearing to avoid session issues
     # driver.get('https://www.bing.com')
 
-    print(colored(f"Search {i+1}/40 completed.", "green"))
+    print(colored(f"Search {i+1}/100 completed.", "green"))
 
 # Close the browser when done
 driver.quit()
