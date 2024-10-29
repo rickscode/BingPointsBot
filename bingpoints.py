@@ -58,7 +58,7 @@ print(colored("Successfully logged in!", "green"))
 # Navigating to Bing search page
 print(colored("Navigating to Bing search page...", "magenta"))
 driver.get('https://www.bing.com')
-time.sleep(7)
+time.sleep(20)
 
 # Perform 40 random searches
 search_terms = [
