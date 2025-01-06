@@ -72,4 +72,4 @@ The program will log in to your Bing account and perform random searches, printi
 
 ## License
 
-This project is licensed under a private license. For more information, please contact the project owner.
+This project is licensed open source. 
